@@ -1,0 +1,58 @@
+Heart attack prediction Using machine Learning 
+  step 1 :
+        importing the Required Libraries or Modules- in this project i have imported the libraries like Numpy, pandas ,matplotlib, seaborn and scikit learn libraries.
+        Numpy - To create a Numpy arrays.
+        pandas - to import the dataset and to perform Exploratary data analysis.
+        matplotlib and seaborn - To create charts and graphs. 
+        sklearn - to perforn data Preprocessing and Machine learning.
+
+  step 2 : 
+        importing the Dataset- the dataset is in CSV(comma saperated values) format, to import the data i have used read_csv("/path") 
+        it will imort the data from the path.
+        the data containes question marks they are bascically null values, but the pandas will not understand those as a null values instead it cosider as a string,
+        to overcome this we have to convert those as a Null values(NaN) then only pandas will understand as they are missing values.
+        na_values = "?"
+
+  step 3 : 
+        Exploratary Data Analysis - here we are doing couple of analysis on data set like checking shape of dataset, renaming the columns, droping the unwanted 
+        columns, handling Null values and so on.....
+            - Handling Null values - by using info() and isnull() we can find the columns having null values. once we found the column if the null values are more 
+              than 50% of the column then there is no use of predicting the data using these columns, so we can drop those columns but, if the columns having less null 
+              values we can replace the null values.
+
+            - Replacing Null values with the Mean - we can replace the Null value with either Mean or Median, here i replaced with Mean using simpleimputer module 
+              from the sklearn library.once i got a confirmation that all null values are cleared then i can move forword.
+
+            - Statistical Analysis - this is done using describe(), which gives an out of 5 number summary with mean,count and standerdad deviation.
+              (5 number summary - minimum, 25 percentile, 50 percentile(Median), 75 percentile, maximum)
+
+            - Encoding - in machine learning we cannot deal with the categorical values so, we have to convert the categorical columns into numerical columns
+              (Column Transformation) to do this we have to methods in sklearn 
+                - Label Encoding - basically convert the catogorical values in a column into numerical values like 0,1,2,3,..... but here we have a disadvantage of 
+                  ordering. the machine learning alogithms treat these numbers as orders like 3>2>1>0 so, label encoder is used only when there is an ordered data.
+                - One Hot Encoding - this will convert the categorical values in a column into numerical values in a binary format to avoid the ordering and create 
+                  a new columns which is equal to unique number of items in a column. for ex: if we have country INDIA and USA then it will convert it as 01 00 and
+                  00 10.
+
+            - Splitting the data into train and test data - Once the data is divided as indipendent and dependent(target) set then we have to further split the data 
+              into train data and test data. train data is for training the model  or performing the analysis on model and test data is for checking the accuracy of 
+              the model prediction on new datasets.
+                - to do this we are using train-test-split method from the sklearn library.
+
+            - Scaling the data - scaling is basically used to compress the whole data of a column within the perticular range of numbers 
+                - there are diffrent types of scaling techniques available standard scaling ,Normalizer, min max scaling etc. here i have used standard scaling 
+                  techinque which basically uses a z score method to scale the values.
+
+
+   step 4 : 
+        Classification Analysis- in supervaised machine learning we have two types of analysis 1) regressional analysis and 2) classification techniques.
+        classification can be done in machine learning using diffrent types of algorithms.
+            - Logistic Regression 
+            - Decision Tree classifier
+            - Random Forest classifier
+            - Support Vector classifier
+            I have done the classification using the all 4 classification techniques.
+            Mean Square error - the percentage of error(variance) yet to cover. if mse is less then it is a good model, if mse is high then it's not a good model.
+            Accuracy - How accuratly our model predicts on new data expressed in percentage.
+
+Based on mse and accuracy we can finalize our model.
